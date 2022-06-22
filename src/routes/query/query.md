@@ -1,6 +1,7 @@
-<script>
-    // @ts-ignore
-    import Query from '../query/query.md';
+On load, this page queries the scrt balance of a hardcoded wallet and also queries the token info of the sSCRT token contract.
+
+The js code running the show:
+```ts
     import { onMount } from "svelte";
 
     // Sending Queries 
@@ -58,22 +59,5 @@
         log3.innerText = `sSCRT has ${token_info.decimals} decimals!\n`;
         consoleLog.appendChild(log3);
     });
-    
-</script>
-    
-<h1>Sending Queries</h1>
 
-<div id="console">
-    <h4>Console Log</h4>
-</div>
-
-<Query />
-
-<style>
-    #console {
-        padding: .5em 2em 1em;
-        border: solid 1px grey;
-    }
-</style>
-    
-    
+```
