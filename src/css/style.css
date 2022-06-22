@@ -1,0 +1,8 @@
+/* import styles from main stylesheet */
+@import "sakura-vader.css";
+
+#console {
+    padding: .5em 2em 1em;
+    border: solid 1px grey;
+    margin: 1.5em 0 1em;
+}

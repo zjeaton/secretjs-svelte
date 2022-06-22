@@ -17,11 +17,15 @@
         // this is strictly for displaying the console.log on the page
         // without having to open the console
         const consoleLog = document.getElementById("console");
-        
+
+        const block = document.createElement('div');
         const log1 = document.createElement('code');
-        log1.innerText = `secretjs:\n\n ${ JSON.stringify(secretjs) } \n\n`;;
-        consoleLog.appendChild(log1);
-        
+        log1.innerText = `secretjs:\n\n ${ JSON.stringify(secretjs) } \n\n`;
+        block.style.height = "15em";
+        block.style.overflow = "scroll";
+        block.style.margin = "0 0 1em";
+        consoleLog.appendChild(block);
+        block.appendChild(log1);
 
         const {
           // @ts-ignore
@@ -74,10 +78,7 @@
 <Query />
 
 <style>
-    #console {
-        padding: .5em 2em 1em;
-        border: solid 1px grey;
-    }
+    
 </style>
     
     
