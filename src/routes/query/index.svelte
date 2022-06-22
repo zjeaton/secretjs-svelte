@@ -18,6 +18,7 @@
         // without having to open the console
         const consoleLog = document.getElementById("console");
 
+        // this block is mirroring the first console.log
         const block = document.createElement('div');
         const log1 = document.createElement('code');
         log1.innerText = `secretjs:\n\n ${ JSON.stringify(secretjs) } \n\n`;

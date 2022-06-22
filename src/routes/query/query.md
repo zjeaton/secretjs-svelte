@@ -1,7 +1,7 @@
 On load, this page queries the scrt balance of a hardcoded wallet and also queries the token info of the sSCRT token contract.
 
 The js code running the show:
-```ts
+```typescript
     import { onMount } from "svelte";
 
     // Sending Queries 
@@ -18,11 +18,16 @@ The js code running the show:
         // this is strictly for displaying the console.log on the page
         // without having to open the console
         const consoleLog = document.getElementById("console");
-        
+
+        // this block is mirroring the first console.log
+        const block = document.createElement('div');
         const log1 = document.createElement('code');
-        log1.innerText = `secretjs:\n\n ${ JSON.stringify(secretjs) } \n\n`;;
-        consoleLog.appendChild(log1);
-        
+        log1.innerText = `secretjs:\n\n ${ JSON.stringify(secretjs) } \n\n`;
+        block.style.height = "15em";
+        block.style.overflow = "scroll";
+        block.style.margin = "0 0 1em";
+        consoleLog.appendChild(block);
+        block.appendChild(log1);
 
         const {
           // @ts-ignore
