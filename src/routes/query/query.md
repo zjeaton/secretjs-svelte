@@ -14,11 +14,13 @@ The js code running the show:
         chainId: "secret-4",
         });
         console.log('secretjs', secretjs);
+
         // this is strictly for displaying the console.log on the page
         // without having to open the console
         const consoleLog = document.getElementById("console");
+        
         const log1 = document.createElement('code');
-        log1.innerText = "secretjs: " + secretjs + "\n";
+        log1.innerText = `secretjs:\n\n ${ JSON.stringify(secretjs) } \n\n`;;
         consoleLog.appendChild(log1);
         
 
@@ -38,6 +40,7 @@ The js code running the show:
 
         console.log(`I have ${Number(amount) / 1e6} SCRT!`);
 
+        // this mirrors console.log on the displayed webpage
         const log2 = document.createElement('code');
         log2.innerText = `I have ${Number(amount) / 1e6} SCRT!\n`;
         consoleLog.appendChild(log2);
@@ -55,6 +58,7 @@ The js code running the show:
 
         console.log(`sSCRT has ${token_info.decimals} decimals!`);
 
+        // this mirrors console.log on the displayed webpage
         const log3 = document.createElement('code');
         log3.innerText = `sSCRT has ${token_info.decimals} decimals!\n`;
         consoleLog.appendChild(log3);
