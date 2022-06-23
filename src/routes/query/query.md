@@ -20,6 +20,8 @@ The js code running the show:
         const consoleLog = document.getElementById("console");
 
         // this block is mirroring the first console.log
+        // consoleXL confines the enormous returned JSON object
+        // to a smaller scrollable container within console
         const consoleXL = document.createElement('div');
         const log1 = document.createElement('code');
         log1.innerText = `secretjs:\n\n ${ JSON.stringify(secretjs) } \n\n`;
