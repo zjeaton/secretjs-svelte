@@ -27,6 +27,7 @@ onMount( async () => {
     memo: "Hello World",
   });
   console.log('tx', tx);
+  
   // this is strictly for displaying the console.log on the page
   // without having to open the console
   if (document.getElementById("console")) {
