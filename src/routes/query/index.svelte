@@ -27,7 +27,9 @@
         consoleXL.style.height = "12em";
         consoleXL.style.overflow = "scroll";
         consoleXL.style.margin = "0 0 1em";
-        consoleLog.appendChild(consoleXL);
+        if (consoleLog !== null) {
+          consoleLog.appendChild(consoleXL);
+        };
         consoleXL.appendChild(log1);
 
         const {
@@ -49,7 +51,9 @@
         // this mirrors console.log on the displayed webpage
         const log2 = document.createElement('code');
         log2.innerText = `I have ${ Number(amount) / 1e6 } SCRT!\n`;
-        consoleLog.appendChild(log2);
+        if (consoleLog !== null) {
+          consoleLog.appendChild(log2);
+        };
 
         const sSCRT = "secret1k0jntykt7e4g3y88ltc60czgjuqdy4c9e8fzek";
         // Get codeHash using `secretcli q compute contract-hash secret1k0jntykt7e4g3y88ltc60czgjuqdy4c9e8fzek`
@@ -67,7 +71,9 @@
         // this mirrors console.log on the displayed webpage
         const log3 = document.createElement('code');
         log3.innerText = `sSCRT has ${ token_info.decimals } decimals!\n`;
-        consoleLog.appendChild(log3);
+        if (consoleLog !== null) {
+          consoleLog.appendChild(log3);
+        };
     });
     
 </script>
