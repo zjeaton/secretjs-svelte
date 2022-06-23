@@ -2,12 +2,13 @@
 @import "sakura-vader.css";
 @import "prism-laserwave.css";
 
+body {
+    max-width: 44em;
+}
+
 #console {
     padding: .5em 2em 1em;
     border: solid 1px grey;
+    border-radius: .5em;
     margin: 1.5em 0 1em;
-}
-
-body {
-    max-width: 44em;
 }
