@@ -36,14 +36,17 @@ onMount( async () => {
     `amount: 1 uSCRT`
   ];
   const txParams = document.getElementById('txParams');
-  for (const item in array) {
-    let element = document.createElement('p');
-    element.innerText = `${ array[item] }`;
-    if (txParams !== null) {
-      txParams.appendChild(element);
-    };
-    if (array[item] !== array[array.length-1]) {
-      await sleep(300);
+  if (txParams !== null) {
+    txParams.style.padding = "1em 2em .25em";
+    for (const item in array) {
+      let element = document.createElement('p');
+      element.innerText = `${ array[item] }`;
+
+        txParams.appendChild(element);
+
+      if (array[item] !== array[array.length-1]) {
+        await sleep(350);
+      };
     };
   };
 
@@ -68,7 +71,9 @@ onMount( async () => {
   const success = document.createElement('p');
   success.innerText = "Transaction sent successfully!";
   success.style.color = "#E26F7A";
-  txParams.appendChild(success);
+  if (txParams !== null) {
+    txParams.appendChild(success);
+  };
   
   if (spinner !== null && spinner.parentNode !== null) {
     spinner.parentNode.removeChild(spinner);
@@ -107,7 +112,6 @@ onMount( async () => {
 <style>
   #txParams {
     background-color: rgb(39, 33, 46);
-    padding: 1em 2em .25em;
     border-radius: .5em;
     overflow: auto;
   }
