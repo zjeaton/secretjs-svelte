@@ -25,7 +25,7 @@
         const log1 = document.createElement('code');
         log1.innerText = `secretjs:\n\n ${ JSON.stringify(secretjs) } \n\n`;
         consoleXL.style.height = "12em";
-        consoleXL.style.overflow = "scroll";
+        consoleXL.style.overflow = "auto";
         consoleXL.style.margin = "0 0 1em";
         if (consoleLog !== null) {
           consoleLog.appendChild(consoleXL);

@@ -2,6 +2,7 @@
 import { Wallet, SecretNetworkClient, MsgSend } from "secretjs";
 import { onMount } from "svelte";
 import { fade } from 'svelte/transition';
+import { Stretch } from 'svelte-loading-spinners';
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -46,6 +47,16 @@ onMount( async () => {
     };
   };
 
+  // this is strictly for displaying the console.log on the page
+  // without having to open the console
+  const consoleLog = document.getElementById("console");
+  const spinner = document.getElementById('spinner');
+  
+  if (spinner !== null) {
+    spinner.style.height = "60px";
+    spinner.style.visibility = "visible";
+  };
+
   const tx = await secretjs.tx.broadcast([msg], {
     gasLimit: 20_000,
     gasPriceInFeeDenom: 0.25,
@@ -53,10 +64,15 @@ onMount( async () => {
     memo: "Hello World",
   });
   console.log('tx', tx);
+
+  const success = document.createElement('p');
+  success.innerText = "Transaction sent successfully!";
+  success.style.color = "#E26F7A";
+  txParams.appendChild(success);
   
-  // this is strictly for displaying the console.log on the page
-  // without having to open the console
-  const consoleLog = document.getElementById("console");
+  if (spinner !== null && spinner.parentNode !== null) {
+    spinner.parentNode.removeChild(spinner);
+  };
 
   // this block is mirroring the first console.log
   // consoleXL confines the enormous returned JSON object
@@ -65,7 +81,7 @@ onMount( async () => {
   const log1 = document.createElement('code');
   log1.innerText = `tx:\n\n ${ JSON.stringify(tx) } \n\n`;
   consoleXL.style.height = "12em";
-  consoleXL.style.overflow = "scroll";
+  consoleXL.style.overflow = "auto";
   consoleXL.style.margin = "0 0 1em";
   if (consoleLog !== null) {
     consoleLog.appendChild(consoleXL);
@@ -81,8 +97,11 @@ onMount( async () => {
 
 <div id="txParams"></div>
 
-<div id="console">
+<div transition:fade id="console">
   <h4>Console</h4>
+  <div id="spinner">
+    <Stretch size="60" color="#DA4453"></Stretch>
+  </div>
 </div>
 
 <style>
@@ -90,5 +109,14 @@ onMount( async () => {
     background-color: rgb(39, 33, 46);
     padding: 1em 2em .25em;
     border-radius: .5em;
+    overflow: auto;
   }
+
+  #spinner {
+    height: 0;
+    width: 60px;
+    margin: auto;
+    visibility: hidden;
+  }
+
 </style>
