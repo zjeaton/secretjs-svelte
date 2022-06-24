@@ -63,7 +63,7 @@ onMount( async () => {
   // to a smaller scrollable container within console
   const consoleXL = document.createElement('div');
   const log1 = document.createElement('code');
-  log1.innerText = `secretjs:\n\n ${ JSON.stringify(tx) } \n\n`;
+  log1.innerText = `tx:\n\n ${ JSON.stringify(tx) } \n\n`;
   consoleXL.style.height = "12em";
   consoleXL.style.overflow = "scroll";
   consoleXL.style.margin = "0 0 1em";
@@ -88,7 +88,7 @@ onMount( async () => {
 <style>
   #txParams {
     background-color: rgb(39, 33, 46);
-    padding: 1em 2em .5em;
+    padding: 1em 2em .25em;
     border-radius: .5em;
   }
 </style>
