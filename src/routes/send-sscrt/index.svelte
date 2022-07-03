@@ -1,5 +1,6 @@
 <script lang="ts">
     import { SecretNetworkClient } from "secretjs";
+    import SendSscrt from '../send-sscrt/sendSscrt.md';
     import { onMount } from "svelte";
   
       onMount( async () => {
@@ -166,38 +167,44 @@
   </script>
   
   <h1>Sending sSCRT using Keplr Wallet</h1>
-  
-  <h2>This executes a live transaction on mainnet!</h2>
-  
-  <div id="app">
-    <div class="container-sm">
-    <b>Address:</b>
-    <div id="address"></div>
-    <!-- <form name="sendForm"> -->
-      <form on:submit|preventDefault={onSubmit}>
-        <div class="form-group">
-            <label for="recipient">Recipient</label>
-            <input class="form-control" id="recipient" name="recipient">
-        </div>
-        <div class="form-group">
-            <label for="amount">Amount</label>
-            <div class="input-group">
-                <input class="form-control" id="amount" name="amount">
-                <div class="input-group-append">
-                    <div class="input-group-text">sSCRT</div>
-                </div>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+
+  <div class="send-sscrt-container">
+    <h2>This executes a live transaction on mainnet!</h2>
+
+    <p>Keplr wallet must be connected or transaction will fail.</p>
+    
+    <div id="app">
+      <div class="container-sm">
+      <b>Address:</b>
+      <div id="address"></div>
+      <!-- <form name="sendForm"> -->
+        <form on:submit|preventDefault={onSubmit}>
+          <div class="form-group">
+              <label for="recipient">Recipient</label>
+              <input class="form-control" id="recipient" name="recipient">
+          </div>
+          <div class="form-group">
+              <label for="amount">Amount</label>
+              <div class="input-group">
+                  <input class="form-control" id="amount" name="amount">
+                  <div class="input-group-append">
+                      <div class="input-group-text">sSCRT</div>
+                  </div>
+              </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      </div>
     </div>
   </div>
-  
-  <p>
-    If you want it to work:<br>
-    npm install @keplr-wallet/types<br>
-    and then create window.d.ts within src<br>
-    <a href="
-    https://docs.keplr.app/api/#using-with-typescript">Use this file</a>
-  
-  </p>
+
+  <SendSscrt />
+
+  <style>
+    .send-sscrt-container {
+      background-color: rgb(39,33,46);
+      border-radius: .5em;
+      padding: 0.01em 1em 1.5em;
+      margin: 1.5em 0;
+    }
+  </style>
