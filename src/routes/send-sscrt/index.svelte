@@ -171,7 +171,7 @@
   <div class="send-sscrt-container">
     <h2>This executes a live transaction on mainnet!</h2>
 
-    <p>Keplr wallet must be connected or transaction will fail.</p>
+    <p>Keplr wallet must be connected and wallet must have sufficient funds or transaction will fail.</p>
     
     <div id="app">
       <div class="container-sm">
