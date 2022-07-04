@@ -1,4 +1,4 @@
-This page requires the @keplr-wallet/types package to be installed.
+Creating this page with SvelteKit requires the @keplr-wallet/types package to be installed.
 
 `$ npm i @keplr-wallet/types`
 
